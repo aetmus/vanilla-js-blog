@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Blog Site</title>
+  </head>
+  <body>
+    <h1>Andrew's Blog Site</h1>
+    <form id="new-post-form">
+      <label for="new-post-title">New Post Title:</label>
+      <input id="new-post-title" name="title" type="text" />
+      <label for="new-post-content">Content:</label>
+      <textarea
+        id="new-post-content"
+        name="content"
+        rows="4"
+        cols="50"
+      ></textarea>
+      <input type="submit" />
+    </form>
+    <p id="formError"></p>
+    <div id="posts">
+      <h2>Posts</h2>
+      <div class="post">
+        <h3 class="title">Sample Post Title</h3>
+        <input type="button" value="Delete Post" class="delete-button" />
+        <p class="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia deleniti
+          eum incidunt fuga voluptate totam? Nihil inventore, quae doloribus qui
+          voluptate dolor cum, commodi earum nam modi adipisci repudiandae
+          porro.
+        </p>
+      </div>
+    </div>
+    <script src="./main.js"></script>
+    <script src="./delete-post.js"></script>
+  </body>
+</html>
