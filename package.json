@@ -1,0 +1,22 @@
+{
+  "name": "vanilla-js-blog",
+  "version": "1.0.0",
+  "description": "simple blog site made with vanilla JS",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aetmus/vanilla-js-blog.git"
+  },
+  "author": "Andrew Etmus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aetmus/vanilla-js-blog/issues"
+  },
+  "homepage": "https://github.com/aetmus/vanilla-js-blog#readme",
+  "dependencies": {
+    "uuid": "^7.0.3"
+  }
+}

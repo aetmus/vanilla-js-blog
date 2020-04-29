@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const addPosts = document.getElementById('new-post-form');
 const postsList = document.getElementById('posts');
 const posts = JSON.parse(localStorage.getItem('posts')) || [];
@@ -6,9 +8,11 @@ function addPost(e) {
   e.preventDefault();
   const title = this.querySelector('[name=title]').value;
   const content = this.querySelector('[name=content]').value;
+  const id = uuidv4();
   const post = {
     title,
-    content
+    content,
+    id
   };
   console.log(post);
   posts.push(post);
@@ -23,7 +27,7 @@ function populateList(posts = [], postsList) {
       <div class="post">
         <h3 class="title">${post.title}</h3>
         <p class="content">${post.content}</p>
-        <input type="button" value="Delete Post" class="delete-button" data-index=${i} />
+        <input type="button" value="Delete Post" class="delete-button" data-index=${i} id="${post.id}" />
       </div>
     `;
   })
