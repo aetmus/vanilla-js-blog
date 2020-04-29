@@ -10,6 +10,7 @@ function addPost(e) {
     title,
     content
   };
+  console.log(post);
   posts.push(post);
   populateList(posts, postsList);
   localStorage.setItem('posts', JSON.stringify(posts));
@@ -34,7 +35,7 @@ function deletePost(e) {
   const el = e.target;
   const index = el.dataset.index;
   posts.splice(index, 1);
-  localStorage.setItem('posts', posts);
+  localStorage.setItem('posts', JSON.stringify(posts));
   populateList(posts, postsList);
 }
 
