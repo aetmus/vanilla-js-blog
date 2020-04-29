@@ -1,60 +1,44 @@
-const newPostForm = document.getElementById('new-post-form');
+const addPosts = document.getElementById('new-post-form');
+const postsList = document.getElementById('posts');
+const posts = JSON.parse(localStorage.getItem('posts')) || [];
 
-function handleFormSubmission(e) {
+function addPost(e) {
   e.preventDefault();
-  const newPostTitle = e.srcElement.elements.title.value;
-  const newPostContent = e.srcElement.elements['new-post-content'].value;
-  const newPost = { newPostTitle, newPostContent }
-  let formSuccess = validateForm();
-  if (!formSuccess) {
-    return;
-  } else {
-    document.getElementById('formError').innerHTML = '';
-    addPostToDOM(newPost);
-    e.srcElement.reset();
-  }
+  const title = this.querySelector('[name=title]').value;
+  const content = this.querySelector('[name=content]').value;
+  const post = {
+    title,
+    content
+  };
+  posts.push(post);
+  populateList(posts, postsList);
+  localStorage.setItem('posts', JSON.stringify(posts));
+  this.reset();
 }
 
-function createPostHTML(post) {
-  return `
-  <div class="post">
-    <h3 class="title">${post.newPostTitle}</h3>
-    <input type="button" value="Delete Post" class="delete-button" />
-    <p class="content">${post.newPostContent}</p>
-  </div>
-`;
-}
-
-function addPostToDOM(post) {
-  let DOMPost = createPostHTML(post);
-  document.getElementById('posts').innerHTML += DOMPost;
-}
-
-function validateForm() {
-  const formTitle = document.forms['new-post-form']['new-post-title'].value;
-  const formContent = document.forms['new-post-form']['new-post-content'].value;
-  if (!formTitle || !formContent) {
-    let errorMessage = 'Neither field can be blank!';
-    document.getElementById('formError').innerHTML = errorMessage;
-    return false;
-  }
-  return true;
-}
-
-const deleteButtons = [...document.getElementsByClassName('delete-button')];
-
-function getPosts() {
-  const posts = document.getElementById('posts');
-  console.log(posts.childNodes);
+function populateList(posts = [], postsList) {
+  postsList.innerHTML = posts.map((post, i) => {
+    return `
+      <div class="post">
+        <h3 class="title">${post.title}</h3>
+        <p class="content">${post.content}</p>
+        <input type="button" value="Delete Post" class="delete-button" data-index=${i} />
+      </div>
+    `;
+  })
+    .join('');
 }
 
 function deletePost(e) {
-  console.log(e);
-  alert('the Delete Buttons don\'t work');
+  if (!e.target.matches('input')) return;
+  const el = e.target;
+  const index = el.dataset.index;
+  posts.splice(index, 1);
+  localStorage.setItem('posts', posts);
+  populateList(posts, postsList);
 }
 
-deleteButtons.forEach(button => {
-  button.addEventListener('click', deletePost);
-});
+addPosts.addEventListener('submit', addPost);
+postsList.addEventListener('click', deletePost);
 
-newPostForm.addEventListener('submit', handleFormSubmission);
+populateList(posts, postsList);
