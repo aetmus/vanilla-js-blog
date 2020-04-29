@@ -14,3 +14,4 @@ I learned a lot while building this, including the following:
 - Utilizing localStorage to store the posts
 - DOM manipulation, including adding elements, and getting data submitted in a form
 - Event delegation on the delete buttons
+- I even learned a bit about bitwise operators, while studying the uuidv4 funtion in main.js, which I admittedly copied from StackOverflow, but I did want to dive into it to try and understand how it actually works
