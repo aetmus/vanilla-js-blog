@@ -16,9 +16,7 @@
     "url": "https://github.com/aetmus/vanilla-js-blog/issues"
   },
   "homepage": "https://github.com/aetmus/vanilla-js-blog#readme",
-  "dependencies": {
-    "uuid": "^7.0.3"
-  },
+  "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.26.7"
   }
