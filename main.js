@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
-
 const addPosts = document.getElementById('new-post-form');
 const postsList = document.getElementById('posts');
 const posts = JSON.parse(localStorage.getItem('posts')) || [];
@@ -32,6 +30,13 @@ function populateList(posts = [], postsList) {
     `;
   })
     .join('');
+}
+
+function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
 }
 
 function deletePost(e) {
