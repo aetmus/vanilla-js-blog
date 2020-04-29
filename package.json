@@ -4,7 +4,7 @@
   "description": "simple blog site made with vanilla JS",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "browser-sync start --directory --server --files \"*.css, *.html, *.js\" --https"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/aetmus/vanilla-js-blog#readme",
   "dependencies": {
     "uuid": "^7.0.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
   }
 }
