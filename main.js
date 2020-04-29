@@ -42,7 +42,8 @@ function uuidv4() {
 function deletePost(e) {
   if (!e.target.matches('input')) return;
   const el = e.target;
-  const index = el.dataset.index;
+  const postToDelete = posts.filter((post) => (post.id == el.id))[0];
+  const index = posts.indexOf(postToDelete);
   posts.splice(index, 1);
   localStorage.setItem('posts', JSON.stringify(posts));
   populateList(posts, postsList);
