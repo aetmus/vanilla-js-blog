@@ -18,6 +18,6 @@
   "homepage": "https://github.com/aetmus/vanilla-js-blog#readme",
   "dependencies": {},
   "devDependencies": {
-    "browser-sync": "^2.26.7"
+    "browser-sync": "^2.27.10"
   }
 }
